@@ -4,11 +4,12 @@ meteor-yahoo-finance
 Provides a Meteor server-side interface to [node-yahoo-finance](https://github.com/pilwon/node-yahoo-finance) through
 a ```YahooFinance``` object.
 
-== Usage:
+## Usage:
 
-=== Historical Quotes
 
-**Single Quote**
+### Historical Quotes
+
+#### Single Quote
 
 ```javascript
 YahooFinance.historical({symbol:'YHOO', from:'2014-06-02', to:'2014-06-02'})
@@ -29,7 +30,7 @@ YahooFinance.historical({symbol:'YHOO', from:'2014-06-02', to:'2014-06-02'})
 }]
 ```
 
-**Multiple Quotes**
+#### Multiple Quotes
 
 ```javascript
 YahooFinance.historical({symbols:['AAPL','GOOGL','YHOO'], from:'2014-06-02', to:'2014-06-02'})
@@ -68,7 +69,7 @@ YahooFinance.historical({symbols:['AAPL','GOOGL','YHOO'], from:'2014-06-02', to:
 }]
 ```
 
-=== Snapshot Quotes
+### Snapshot Quotes
 
 ```javascript
 YahooFinance.snapshot({symbols:['AAPL','GOOGL','YHOO'], fields:['s','n']})
