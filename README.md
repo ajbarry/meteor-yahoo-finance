@@ -1,4 +1,4 @@
-meteor-yahoo-finance
+ajbarry:yahoo-finance
 ====================
 
 Provides a Meteor server-side interface to [node-yahoo-finance](https://github.com/pilwon/node-yahoo-finance) through
