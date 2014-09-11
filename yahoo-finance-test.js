@@ -11,7 +11,7 @@ Tinytest.add('YahooFinance - Historical Quote (single)', function(test) {
       high: 34.95,
       low: 34.28,
       close: 34.87,
-      volume: 9152900,
+      volume: 9178900,
       adjClose: 34.87,
       date: new Date(testDate)
     }
@@ -34,7 +34,7 @@ Tinytest.add('YahooFinance - Historical Quote (multiple)', function(test) {
       low: 622.5,
       close: 628.65,
       volume: 92337700,
-      adjClose: 89.81,
+      adjClose: 89.36,
       date: testDate
     },{
       symbol: 'GOOGL',
@@ -51,7 +51,7 @@ Tinytest.add('YahooFinance - Historical Quote (multiple)', function(test) {
       high: 34.95,
       low: 34.28,
       close: 34.87,
-      volume: 9152900,
+      volume: 9178900,
       adjClose: 34.87,
       date: testDate
     }];
