@@ -1,7 +1,7 @@
 Package.describe({
   name: 'ajbarry:yahoo-finance',
   summary: 'Yahoo Finance Stock Quote Data Utility for Meteor Server',
-  version: '0.1.4',
+  version: '0.1.4_1',
   git: 'https://github.com/ajbarry/meteor-yahoo-finance.git'
 });
 
