@@ -3,31 +3,32 @@ Tinytest.add('YahooFinance - Historical Function Export', function(test) {
 });
 
 Tinytest.add('YahooFinance - Historical Quote (single)', function(test) {
-    var symbol = 'YHOO';
-    var testDate = '2014-06-02T07:00:00.000Z';
-    var expectedQuote = {
-      symbol: 'YHOO',
-      open: 34.689999,
-      high: 34.950001,
-      low: 34.279999,
-      close: 34.869999,
-      volume: 9178900,
-      adjClose: 34.869999,
-      date: new Date(testDate)
-    };
+  var symbol = 'YHOO';
+  var testDate = '2014-06-02T07:00:00.000Z';
+  var expectedQuote = {
+    symbol: 'YHOO',
+    open: 34.689999,
+    high: 34.950001,
+    low: 34.279999,
+    close: 34.869999,
+    volume: 9178900,
+    adjClose: 34.869999,
+    date: new Date(testDate)
+  };
 
-    var quotes = YahooFinance.historical({symbol:symbol, from:testDate, to:testDate});
-    // console.log(quotes);
+  var quotes = YahooFinance.historical({symbol: symbol, from: testDate, to: testDate});
+  // console.log(quotes);
 
-    test.instanceOf(quotes, Array);
-    test.equal(quotes[0], expectedQuote);
+  test.instanceOf(quotes, Array);
+  test.equal(quotes[0], expectedQuote);
 });
 
 Tinytest.add('YahooFinance - Historical Quote (multiple)', function(test) {
-    var symbols = ['AAPL','GOOGL','YHOO'];
-    var fields = ['n','s','p'];
-    var testDate = new Date('2014-06-02T07:00:00.000Z');
-    var expectedQuotes = [{
+  var symbols = ['AAPL', 'GOOGL', 'YHOO'];
+  var fields = ['n', 's', 'p'];
+  var testDate = new Date('2014-06-02T07:00:00.000Z');
+  var expectedQuotes = {
+    AAPL: [{
       symbol: 'AAPL',
       open: 633.959984,
       high: 634.830017,
@@ -36,7 +37,8 @@ Tinytest.add('YahooFinance - Historical Quote (multiple)', function(test) {
       volume: 92337700,
       adjClose: 87.860693,
       date: testDate
-    },{
+    }],
+    GOOGL: [{
       symbol: 'GOOGL',
       open: 569.75,
       high: 570.409973,
@@ -45,7 +47,8 @@ Tinytest.add('YahooFinance - Historical Quote (multiple)', function(test) {
       volume: 1660500,
       adjClose: 564.340027,
       date: testDate
-    },{
+    }],
+    YHOO: [{
       symbol: 'YHOO',
       open: 34.689999,
       high: 34.950001,
@@ -54,16 +57,20 @@ Tinytest.add('YahooFinance - Historical Quote (multiple)', function(test) {
       volume: 9178900,
       adjClose: 34.869999,
       date: testDate
-    }];
+    }]
+  };
 
-    var stocks = YahooFinance.historical({symbols:symbols, from:testDate, to:testDate});
-    // console.log(stocks[0].quotes[0]);
+  var stocks = YahooFinance.historical({symbols: symbols, from: testDate, to: testDate});
+  //console.log(stocks);
 
-    test.instanceOf(stocks, Array);
+  test.instanceOf(stocks, Object);
+  test.instanceOf(stocks['AAPL'], Array);
+  test.instanceOf(stocks['GOOGL'], Array);
+  test.instanceOf(stocks['YHOO'], Array);
 
-    test.equal(stocks[0].quotes[0], expectedQuotes[0]);
-    test.equal(stocks[1].quotes[0], expectedQuotes[1]);
-    test.equal(stocks[2].quotes[0], expectedQuotes[2]);
+  test.equal(stocks['AAPL'], expectedQuotes['AAPL']);
+  test.equal(stocks['GOOGL'], expectedQuotes['GOOGL']);
+  test.equal(stocks['YHOO'], expectedQuotes['YHOO']);
 });
 
 
@@ -72,16 +79,16 @@ Tinytest.add('YahooFinance - Snapshot Function Export', function(test) {
 });
 
 Tinytest.add('YahooFinance - Snapshot Quote', function(test) {
-    var symbols = ['AAPL','GOOGL','YHOO'];
-    var fields = ['s','n'];
-    var expectedSnapshots = {
-      AAPL: {name:'Apple Inc.', symbol:'AAPL'},
-      GOOGL: {name:'Alphabet Inc.', symbol:'GOOGL'},
-      YHOO: {name:'Yahoo! Inc.', symbol:'YHOO'}
-    };
+  var symbols = ['AAPL', 'GOOGL', 'YHOO'];
+  var fields = ['s', 'n'];
+  var expectedSnapshots = [
+    {name: 'Apple Inc.', symbol: 'AAPL'},
+    {name: 'Alphabet Inc.', symbol: 'GOOGL'},
+    {name: 'Yahoo! Inc.', symbol: 'YHOO'}
+  ];
 
-    var snapshots = YahooFinance.snapshot({symbols:symbols, fields:fields});
-    // console.log(snapshots);
+  var snapshots = YahooFinance.snapshot({symbols: symbols, fields: fields});
+  //console.log(snapshots);
 
-    test.equal(snapshots, expectedSnapshots);
+  test.equal(snapshots, expectedSnapshots);
 });
