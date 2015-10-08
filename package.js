@@ -1,12 +1,12 @@
 Package.describe({
   name: 'ajbarry:yahoo-finance',
   summary: 'Yahoo Finance Stock Quote Data Utility for Meteor Server',
-  version: '0.1.4_1',
+  version: '0.2.11_1',
   git: 'https://github.com/ajbarry/meteor-yahoo-finance.git'
 });
 
 Npm.depends({
-  'yahoo-finance': '0.1.4'
+  'yahoo-finance': '0.2.11'
 });
 
 Package.on_use(function (api) {
