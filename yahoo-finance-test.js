@@ -7,14 +7,14 @@ Tinytest.add('YahooFinance - Historical Quote (single)', function(test) {
     var testDate = '2014-06-02T07:00:00.000Z';
     var expectedQuote = {
       symbol: 'YHOO',
-      open: 34.69,
-      high: 34.95,
-      low: 34.28,
-      close: 34.87,
+      open: 34.689999,
+      high: 34.950001,
+      low: 34.279999,
+      close: 34.869999,
       volume: 9178900,
-      adjClose: 34.87,
+      adjClose: 34.869999,
       date: new Date(testDate)
-    }
+    };
 
     var quotes = YahooFinance.historical({symbol:symbol, from:testDate, to:testDate});
     // console.log(quotes);
@@ -29,30 +29,30 @@ Tinytest.add('YahooFinance - Historical Quote (multiple)', function(test) {
     var testDate = new Date('2014-06-02T07:00:00.000Z');
     var expectedQuotes = [{
       symbol: 'AAPL',
-      open: 633.96,
-      high: 634.83,
-      low: 622.5,
-      close: 628.65,
+      open: 633.959984,
+      high: 634.830017,
+      low: 622.500015,
+      close: 628.650009,
       volume: 92337700,
-      adjClose: 89.36,
+      adjClose: 87.860693,
       date: testDate
     },{
       symbol: 'GOOGL',
       open: 569.75,
-      high: 570.41,
-      low: 556.7,
-      close: 564.34,
+      high: 570.409973,
+      low: 556.700012,
+      close: 564.340027,
       volume: 1660500,
-      adjClose: 564.34,
+      adjClose: 564.340027,
       date: testDate
     },{
       symbol: 'YHOO',
-      open: 34.69,
-      high: 34.95,
-      low: 34.28,
-      close: 34.87,
+      open: 34.689999,
+      high: 34.950001,
+      low: 34.279999,
+      close: 34.869999,
       volume: 9178900,
-      adjClose: 34.87,
+      adjClose: 34.869999,
       date: testDate
     }];
 
@@ -76,7 +76,7 @@ Tinytest.add('YahooFinance - Snapshot Quote', function(test) {
     var fields = ['s','n'];
     var expectedSnapshots = {
       AAPL: {name:'Apple Inc.', symbol:'AAPL'},
-      GOOGL: {name:'Google Inc.', symbol:'GOOGL'},
+      GOOGL: {name:'Alphabet Inc.', symbol:'GOOGL'},
       YHOO: {name:'Yahoo! Inc.', symbol:'YHOO'}
     };
 
