@@ -6,6 +6,15 @@ a ```YahooFinance``` object.
 
 ## Usage:
 
+Please note that currently this package is limited to server-side operation. Personally I didn't intend to ever use
+this package for client-side functionality and chose not to bloat my client footprint unnecessarily. I don't believe there
+is currently any way in Meteor to specify where to load packages outside of the package.js definition itself. If there is
+a way, please let me know... or Fork it!
+
+Meanwhile, if you would like to try it out for yourself, see Tim Barclay's walk-through
+[Creating a Single Page app in Meteor](http://blog.scottlogic.com/2015/07/14/meteor.html) that uses yahoo-finance to
+generate a [Highstock](http://www.highcharts.com/products/highstock) chart. Thanks Tim!
+
 
 ### Historical Quotes
 Historical quotes give you the closing data for the stock symbols you request within a given date range.
@@ -18,7 +27,7 @@ This data structure is different from the Multiple Quote approach described belo
 YahooFinance.historical({symbol:'YHOO', from:'2014-06-02', to:'2014-06-02'})
 ```
 
-*yields an Array of quote Objects [{from date quote}, ..., {to date quote}] :*
+*yields an Array of quote Objects `[{from date quote}, ..., {to date quote}]` :*
 
 ```javascript
 [{
@@ -41,7 +50,7 @@ This data structure is different from the Single Quote approach described above.
 YahooFinance.historical({symbols:['AAPL','GOOGL','YHOO'], from:'2014-06-02', to:'2014-06-02'})
 ```
 
-*yields an Object of {'SYMBOL': [{from day quote}, ..., {to day quote}]} such as:*
+*yields an Object of `{'SYMBOL': [{from date quote}, ..., {to date quote}]}` such as:*
 
 ```javascript
 { AAPL: [{
